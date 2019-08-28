@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<script>
+function getIndexToIns(arr, num) {
+    
+arr.push(num);
+console.log(arr);
+
+var newArr = arr;
+
+function sortNumber(a,b) {
+    console.log(a - b);
+    return a - b;
+}
+newArr.sort(sortNumber);
+
+console.log(newArr);
+console.log(newArr.indexOf(num));
+
+return newArr.indexOf(num);
+
+}
+getIndexToIns([20, 3, 5], 19);
+
+</script>
+</html>
