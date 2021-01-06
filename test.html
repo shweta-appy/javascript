@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JavaScript Assignment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+<div id="welcome-msg">
+     <div class="all-item">
+         <h2>All item</h2>
+         <button>Item2 is added to cart</button>
+     </div>
+     <div class="cards-price-wrap">
+          <div class="cards-wrap">
+             
+               <div id="demo0"></div>
+               <div id="demo1"></div>
+               <div id="demo2"></div>
+               <div id="demo3"></div>
+               <div id="demo4"></div>
+               <div id="demo5"></div>
+               <div id="demo6"></div>
+               <div id="demo7"></div>
+          </div>
+          
+          <div class="price-wrap">
+            <div>
+            <div class="heading-table">
+                <p>Item</p>
+                <p>Qty</p>
+                <p>Price</p>
+            </div>
+             <table>
+                 <tr>
+                     <div id="itemCart0" class="itemnew"></div>
+                 </tr>
+                 <tr>
+                    <div id="itemCart1" class="itemnew"></div>
+                </tr>
+                <tr>
+                    <div id="itemCart2" class="itemnew"></div>
+                </tr>
+                <tr>
+                    <div id="itemCart3" class="itemnew"></div>
+                </tr>
+                <tr>
+                    <div id="itemCart4" class="itemnew"></div>
+                </tr>
+                <tr>
+                    <div id="itemCart5" class="itemnew"></div>
+                </tr>
+                <tr>
+                    <div id="itemCart6" class="itemnew"></div>
+                </tr>
+                <tr>
+                    <div id="itemCart7" class="itemnew"></div>
+                </tr>
+    
+             </table>
+         </div>
+         <div class="total-price-wrap">
+            <h3>Total</h3>
+            <div class="total-price-1">
+                 <p>Items</p>
+                 <p>:</p>
+                 <p id="price-item"></p>
+            </div>
+            <div class="total-price-1">
+                <p>Discount</p>
+                <p>:</p>
+                <p id="discount-item"></p>
+           </div>
+           <div class="total-price-1 price-1">
+                <p>Order Total</p>
+                <p>:</p>
+                <p id="price-item1"></p>
+           </div>
+          </div>
+        </div>
+     </div>
+    
+</div>
+
+<script>
+
+
+let Obj = {
+    "items": [
+        {
+            "name": "Samsung Series 4",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 13999,
+                "display": 22500
+            },
+            "discount": 37
+        },
+        {
+            "name": "Samsung Super 6",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 35999,
+                "display": 66900
+            },
+            "discount": 46
+        },
+        {
+            "name": "Samsung The Frame",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 84999,
+                "display": 133900
+            },
+            "discount": 36
+        },
+        {
+            "name": "Thomson B9 Pro",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 9999,
+                "display": 16999
+            },
+            "discount": 41
+        },
+        {
+            "name": "LG Ultra HD",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 39990,
+                "display": 79990
+            },
+            "discount": 50
+        },
+        {
+            "name": "Vu Ready LED TV",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 7999,
+                "display": 17e3
+            },
+            "discount": 52
+        },
+        {
+            "name": "Koryo Android TV",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 55999,
+                "display": 199990
+            },
+            "discount": 71
+        },
+        {
+            "name": "Micromax LED Smart",
+            "image": "https://rukminim1.flixcart.com/image/670/600/allinone-desktop/d/n/q/apple-imac-21-5-inch-4k-retina-core-i5-3-1ghz-8gb-1tb-intel-iris-original-imaeh5h83fuzbksz.jpeg?q=90",
+            "price": {
+                "actual": 9999,
+                "display": 27990
+            },
+            "discount": 64
+        }
+    ]
+};
+var data = JSON.parse(JSON.stringify(Obj));
+var totalcartval;
+var cardContainer= document.getElementById("demo");
+for ( var i = 0; i < data.items.length; i++) {
+       var temp = '<div class="card"><div class="offer"><p>' + data.items[i].discount + 
+        '% Off <p></div> <img src= '+data.items[i].image+' alt=""><div class="add-remove-product">  <div><p>'
+        + data.items[i].name + '</p><p><del><span class="red-strick"><span class="normal-price">' +  data.items[i].price.display + 
+        '</span></span></del>    $<span class="offer-price">' + data.items[i].price.actual + 
+        '</span></p></div><div><button onclick="myFunction(data, '+i+')">Add to cart</button></div>' 
+        // console.log(temp);
+        document.getElementById("demo"+ i).innerHTML = temp;
+}
+function myFunction(data,i) {
+            //console.log(i);
+            var pricetemp = ' <td><div class="one-product"><img src='+ data.items[i].image+' alt=""><span>'+ data.items[i].name+
+                '</span>  </div>  </td><td><div><button onclick="add(data,'+i+');">+</button><input type="button" value="1" id="addnum'+i+
+                    '"><button onclick="remove(data, '+i+
+                    ');">-</button></div></td><td>$<input class="multiply" value='+data.items[i].price.actual+' id="multiply'+i+'"></td>';
+            document.getElementById("itemCart"+ i).innerHTML = pricetemp;
+            var element = document.getElementById("itemCart"+ i);
+            element.classList.add("item-border");
+            total();
+}
+    function add(data, i) {
+    // console.log('sathiya0 '+ idname);
+    var idname = 'addnum'+i;
+    var multy = 'multiply'+i;
+    var multy1 = 'multiply1'+i;
+
+    var add1 = document.getElementById(idname).value;
+    var x = 1;
+    add1 = parseInt(add1) + x;
+    document.getElementById(idname).value = add1;
+     var totaleachprice = data.items[i].price.actual * add1;
+    //  var totaleachprice1 = data.items[i].price.display * add1;
+
+  //  console.log(totaleachprice);
+       document.getElementById(multy).innerHTML ='$' + totaleachprice; 
+    //    document.getElementById(multy1).innerHTML ='$' + totaleachprice1; 
+    //    document.getElementById(multy).setAttribute("value") =totaleachprice; 
+       document.getElementById(multy).setAttribute("value",totaleachprice); 
+    //    document.getElementById(multy1).setAttribute("value",totaleachprice1); 
+
+      // console.log(totaleachprice);
+
+     total();
+}
+
+function remove(data, i) {
+    var idname = 'addnum'+i;
+    var multy = 'multiply'+i;
+
+    var add1 = document.getElementById(idname).value;
+    var x = 1;
+    remove1 = parseInt(add1) - x;
+    document.getElementById(idname).value = remove1;
+    var totaleachprice = data.items[i].price.actual * remove1;
+    //console.log(totaleachprice);
+    document.getElementById(multy).innerHTML ='$' + totaleachprice; 
+    document.getElementById(multy).setAttribute("value",totaleachprice); 
+
+ total();
+}
+
+function total() {
+    var multy = 'multiply';
+
+    var cls = document.getElementsByClassName(multy); 
+    totalcartval = 0;
+    for(var i = 0; i < cls.length; i++)
+    {
+       totalcartval = parseInt(cls[i].getAttribute("value")) + totalcartval;
+    }
+
+    document.getElementById('price-item').innerHTML ='$' + totalcartval; 
+    document.getElementById('price-item1').innerHTML ='$' + totalcartval; 
+
+    // var cls = document.getElementsByClassName('multiply1'); 
+    // totalcartval1 = 0;
+    // for(var i = 0; i < cls.length; i++)
+    // {
+    //    totalcartval = parseInt(cls[i].getAttribute("value")) + totalcartval1;
+    // }
+
+    // document.getElementById('discount-item').innerHTML ='$' + totalcartval1; 
+}
+</script>
+</body>
+</html>
